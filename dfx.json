@@ -1,0 +1,28 @@
+{
+  "canisters": {
+    "dkepper_backend": {
+      "main": "src/dkepper_backend/main.mo",
+      "type": "motoko"
+    },
+    "dkepper_frontend": {
+      "dependencies": [
+        "dkepper_backend"
+      ],
+      "frontend": {
+        "entrypoint": "src/dkepper_frontend/src/index.html"
+      },
+      "source": [
+        "src/dkepper_frontend/assets",
+        "dist/dkepper_frontend/"
+      ],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "version": 1
+}
