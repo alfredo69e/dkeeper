@@ -5,10 +5,18 @@
   "keywords": ["Internet Computer", "Motoko", "JavaScript", "Canister"],
   "scripts": {
     "build": "webpack",
-    "prebuild": "npm run generate",
+    "prebuild": "npm run copy:types",
     "start": "webpack serve --mode development --env development",
-    "prestart": "npm run generate",
-    "generate": "dfx generate dkepper_backend"
+    "prestart": "npm run copy:types",
+    "copy:types": "rsync -avr .dfx/$(echo ${DFX_NETWORK:-'**'})/canisters/** --exclude='assets/' --exclude='idl/' --exclude='*.wasm' --delete src/declarations"
+  },
+  "dependencies": {
+    "@material-ui/core": "4.6.1",
+    "@material-ui/icons": "4.5.1",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
+    "react-scripts": "5.0.0",
+    "uuid": "8.3.2"
   },
   "devDependencies": {
     "@dfinity/agent": "0.15.1",
